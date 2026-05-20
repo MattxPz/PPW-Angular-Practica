@@ -4,9 +4,11 @@ import { RouterLink } from "@angular/router";
 @Component({
   selector: 'app-students-page',
   imports: [RouterLink],
+  styleUrl: './students-page.css',
   templateUrl: './students-page.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
+
 export class StudentsPage {
 
   readonly students = signal([
