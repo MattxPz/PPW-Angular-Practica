@@ -1,22 +1,107 @@
-<footer>
+<footer
+  class="footer sm:footer-horizontal mt-10 border border-base-200 bg-base-300 p-10 text-base-content shadow-sm"
+>
 
-  <p>FOOTER PPW-ANGULAR</p>
-  <!-- uppercase -->
-  <p>{{ nombre | uppercase }}</p>
+  <!-- INFORMACIÓN -->
+  <nav>
 
-  <!-- lowercase -->
-  <!-- <p>{{ mensaje | lowercase }}</p> -->
+    <h6 class="footer-title">
+      PPW Angular
+    </h6>
 
-  <!-- titlecase -->
-  <p>{{ mensaje | titlecase }}</p>
+    <p>
+      {{ nombre | uppercase }}
+    </p>
 
-  <!-- date -->
-  <p>{{ fecha | date:'fullDate' }}</p>
+    <p>
+      {{ mensaje | titlecase }}
+    </p>
 
-  <!-- currency -->
-  <!-- <p>{{ precio | currency:'USD' }}</p> -->
+    <p>
+      {{ fecha | date:'fullDate' }}
+    </p>
 
-  <!-- percent -->
-  <!-- <p>{{ porcentaje | percent }}</p> -->
+  </nav>
+
+  <!-- NAVEGACIÓN -->
+  <nav>
+
+    <h6 class="footer-title">
+      Navegación
+    </h6>
+
+    <a
+      class="link link-hover"
+      [routerLink]="['/']"
+    >
+      Inicio
+    </a>
+
+    <a
+      class="link link-hover"
+      [routerLink]="['/students']"
+    >
+      Estudiantes
+    </a>
+
+    <a
+      class="link link-hover"
+      [routerLink]="['/layouts']"
+    >
+      Layouts
+    </a>
+
+  </nav>
+
+  <!-- FORMULARIOS -->
+  <nav>
+
+    <h6 class="footer-title">
+      Formularios
+    </h6>
+
+    <a
+      class="link link-hover"
+      [routerLink]="['/signup']"
+    >
+      Signup
+    </a>
+
+    <a
+      class="link link-hover"
+      [routerLink]="['/profile']"
+    >
+      Perfil
+    </a>
+
+    <a
+      class="link link-hover"
+      [routerLink]="['/project-config']"
+    >
+      Configurar Proyecto
+    </a>
+
+  </nav>
+
+  <!-- TECNOLOGÍAS -->
+  <nav>
+
+    <h6 class="footer-title">
+      Tecnologías
+    </h6>
+
+    <span class="link link-hover">
+      Angular 21
+    </span>
+
+    <span class="link link-hover">
+      TailwindCSS
+    </span>
+
+    <span class="link link-hover">
+      DaisyUI
+    </span>
+
+  </nav>
 
 </footer>

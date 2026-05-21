@@ -23,10 +23,9 @@ export function emailUniqueValidator(): AsyncValidatorFn {
 
     // Convierte el valor actual del control en un Observable
     return of(control.value).pipe(
-      // Simula el tiempo de respuesta de una API
+
       delay(500),
 
-      // Transforma el email en un resultado de validación
       map((email: string) => {
         const takenEmails = [
           'user@example.com',

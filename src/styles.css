@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
-@tailwind components;
-@tailwind utilities;
+@plugin "daisyui";
 
+/*
 @theme {
     --color-brand: #0f4c81;
     --color-brand-strong: #0a365c;
@@ -14,4 +14,6 @@
     margin: 0;
     font-family: Inter, system-ui, sans-serif;
     }
+    
 }
+    */

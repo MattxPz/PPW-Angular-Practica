@@ -1,22 +1,160 @@
-<section class="hero">
+<main class="w-full bg-slate-50 text-slate-900 overflow-x-hidden">
+  <!-- Hero Section -->
+  <!-- w-full y bg-slate-50 aseguran que el fondo ocupe todo el ancho -->
+  <section class="relative w-full min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-slate-50">
+    <!-- Background Animated Blobs -->
+    <div class="absolute top-1/4 -left-20 w-96 h-96 bg-indigo-300/20 rounded-full blur-[120px] animate-blob"></div>
+    <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-purple-300/20 rounded-full blur-[120px] animate-blob" style="animation-delay: 2s;"></div>
+    
+    <!-- Contenedor centralizado para mantener el texto legible -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+      
+      <!-- Hero Left: Light Glass Card -->
+      <!-- h-fit asegura que la caja se adapte exactamente al alto de su contenido -->
+      <div class="lg:col-span-7 bg-white/90 backdrop-blur-md border border-slate-200 shadow-xl shadow-slate-200/50 p-8 md:p-12 rounded-4x1 h-fit hover:shadow-2xl hover:shadow-indigo-500/10 transition-all duration-500">
+        <div class="flex flex-col md:flex-row items-center gap-8 mb-10">
+          <div class="relative group w-fit">
+            <div class="absolute -inset-1 bg-linear-to-r from-indigo-500 to-purple-500 rounded-full blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+            <img alt="Alex Rivera Profile" class="relative w-32 h-32 md:w-48 md:h-48 rounded-full object-cover border-4 border-white shadow-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB56hU4-tGdFjSmLQS7h9HQH8nwgFfVtZPOiiEmYPfImhDlg82YtXg2wYZ3V5EAkcAXvZzrtDSLfQZrTqAMlej4KIcHhF6aSF2e1QwFEG8-NmXCS4_qRA7WfTBGx9FaSuFrx-Iq6kgJt5Rpfn8CEPpJmEhNwQafXiBjLXS0as06hyDKUxbHwTDFCyvX7w_zBt-jJi6fSoNACWZhN4g9clrvODteikJXdQsalUNh_lgCWPMwEeGgKoYLP0R8hS6xRq0BgN9SpErDXaI9"/>
+          </div>
+          <div class="text-center md:text-left">
+            <span class="text-xs font-bold text-indigo-700 bg-indigo-50 px-4 py-1.5 rounded-full uppercase tracking-widest mb-4 inline-block w-fit">
+              Available for Freelance
+            </span>
+            <h1 class="font-sans font-extrabold text-4xl md:text-6xl text-slate-900 mb-2 leading-tight tracking-tight">
+              Alex Rivera
+            </h1>
+            <h2 class="text-xl md:text-2xl font-semibold text-indigo-600 tracking-tight">
+              Full-Stack Engineer
+            </h2>
+          </div>
+        </div>
+        <p class="text-lg text-slate-600 mb-10 max-w-2xl leading-relaxed">
+          I specialize in architecting <span class="text-slate-900 font-bold">AI-driven web applications</span> that bridge complex backend logic with intuitive, high-performance user interfaces. Transforming sophisticated data into seamless digital experiences.
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+          <button class="bg-linear-to-r from-indigo-600 to-purple-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-indigo-200 hover:shadow-xl hover:scale-105 active:scale-95 transition-all w-fit">
+            View Work
+          </button>
+          <button class="bg-white border-2 border-slate-200 text-slate-700 font-bold px-8 py-4 rounded-xl hover:bg-slate-50 hover:border-slate-300 active:scale-95 transition-all w-fit">
+            Contact
+          </button>
+        </div>
+      </div>
 
-  <h2>{{ title() | uppercase }}</h2>
-  <p>{{ subtitle() }}</p>
- 
-  <button type="button" (click)="toggleMode()">Vista: {{ viewMode() }}</button>
+      <!-- Hero Right: Technical Accents -->
+      <div class="hidden lg:block lg:col-span-5 relative h-fit">
+        <!-- w-fit y h-fit hace que la caja no sea más ancha ni más alta que el código -->
+        <div class="bg-white border border-slate-200 shadow-xl shadow-slate-200/50 rounded-xl p-6 mb-6 transform hover:-translate-y-2 transition-transform w-fit h-fit ml-auto">
+          <!-- Controles de ventana -->
+          <div class="flex gap-2 mb-4">
+            <div class="w-3 h-3 rounded-full bg-red-400"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+            <div class="w-3 h-3 rounded-full bg-green-400"></div>
+          </div>
+          <pre class="text-sm text-indigo-600 overflow-hidden font-mono">
+<code class="block">
+const buildApp = async (req) =&gt; &#123;
+  const ai = await loadModel('LLM');
+  return ai.generate(&#123;
+    context: "Precision Code",
+    style: "Minimalist"
+  &#125;);
+&#125;;
+</code>
+          </pre>
+        </div>
+        
+        <div class="flex justify-end">
+          <!-- w-fit h-fit para adaptar al texto interior -->
+          <div class="bg-white border border-slate-200 shadow-lg shadow-slate-200/50 rounded-xl p-4 inline-flex items-center gap-3 w-fit h-fit">
+            <span class="material-symbols-outlined text-yellow-500" style="font-variation-settings: 'FILL' 1;">bolt</span>
+            <span class="text-sm font-bold text-slate-800">99.9% Uptime Deployment</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  @switch (viewMode()) {
-    @case ('lista') {
-      <ul>
-        @for (item of topics(); track item) {
-          <li>{{ item }}</li>
-        } @empty {
-          <p>No hay temas registrados.</p>
-        }
-      </ul>
-    }
-    @case ('resumen') {
-      <p>Total de temas: <strong>{{ topics().length }}</strong></p>
-    }
-  }
-</section>
+  <!-- About Section -->
+  <!-- bg-slate-100 para crear un contraste sutil de "slate", ocupando todo el ancho -->
+  <section class="py-24 bg-slate-100 relative border-t border-slate-200 w-full">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+        
+        <!-- About Left -->
+        <!-- h-fit para que el div se adapte a su texto -->
+        <div class="lg:col-span-5 h-fit">
+          <span class="text-sm font-bold text-indigo-600 uppercase tracking-widest block mb-4 w-fit">The Narrative</span>
+          <h2 class="font-sans text-3xl md:text-4xl font-extrabold text-slate-900 mb-8 tracking-tight">Engineering Digital Artistry</h2>
+          <div class="space-y-6 text-slate-600 text-lg leading-relaxed">
+            <p>
+              With over 8 years of experience in the software industry, I view code as a medium for solving real-world human problems. My approach is rooted in the philosophy of "mathematical harmony"—where every pixel and every line of code serves a functional purpose.
+            </p>
+            <p>
+              I've partnered with startups and enterprise teams to deliver scalable architectures, focusing on React ecosystems and distributed Node.js microservices. My current obsession lies at the intersection of Generative AI and UI interactivity.
+            </p>
+          </div>
+        </div>
+
+        <!-- About Right: Tech Stack -->
+        <div class="lg:col-span-7 h-fit">
+          <span class="text-sm font-bold text-indigo-600 uppercase tracking-widest block mb-6 w-fit">Technical Stack</span>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            
+            <!-- Skill Cards -->
+            <!-- flex flex-col justify-between h-fit adaptan el tamaño exacto del contenido interno -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-indigo-200 group transition-all duration-300 h-fit flex flex-col items-start">
+              <div class="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center mb-4 group-hover:bg-indigo-100 transition-colors">
+                <span class="material-symbols-outlined text-indigo-600">deployed_code</span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 mb-1">React</h3>
+              <p class="text-slate-500 text-xs font-medium uppercase tracking-wide">UI Library</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-indigo-200 group transition-all duration-300 h-fit flex flex-col items-start">
+              <div class="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center mb-4 group-hover:bg-indigo-100 transition-colors">
+                <span class="material-symbols-outlined text-indigo-600">javascript</span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 mb-1">Node.js</h3>
+              <p class="text-slate-500 text-xs font-medium uppercase tracking-wide">Runtime</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-indigo-200 group transition-all duration-300 h-fit flex flex-col items-start">
+              <div class="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center mb-4 group-hover:bg-indigo-100 transition-colors">
+                <span class="material-symbols-outlined text-indigo-600">psychology</span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 mb-1">Python</h3>
+              <p class="text-slate-500 text-xs font-medium uppercase tracking-wide">AI / Backend</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-indigo-200 group transition-all duration-300 h-fit flex flex-col items-start">
+              <div class="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center mb-4 group-hover:bg-indigo-100 transition-colors">
+                <span class="material-symbols-outlined text-indigo-600">cloud_queue</span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 mb-1">AWS</h3>
+              <p class="text-slate-500 text-xs font-medium uppercase tracking-wide">Cloud Infra</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-indigo-200 group transition-all duration-300 h-fit flex flex-col items-start">
+              <div class="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center mb-4 group-hover:bg-indigo-100 transition-colors">
+                <span class="material-symbols-outlined text-indigo-600">box</span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 mb-1">Docker</h3>
+              <p class="text-slate-500 text-xs font-medium uppercase tracking-wide">DevOps</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-indigo-200 group transition-all duration-300 h-fit flex flex-col items-start">
+              <div class="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center mb-4 group-hover:bg-indigo-100 transition-colors">
+                <span class="material-symbols-outlined text-indigo-600">verified</span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 mb-1">TypeScript</h3>
+              <p class="text-slate-500 text-xs font-medium uppercase tracking-wide">Reliability</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

@@ -6,6 +6,7 @@ import { LayoutsPage } from './features/layouts/layouts-page';
 import { SignupPage } from './features/signup-page/signup-page';
 import { ProfilePage } from './features/profile-page/profile-page';
 import { ProjectConfigPage } from './features/project-config-page/project-config-page';
+import { UiComponentsPage } from './features/ui-components-page/ui-components-page';
 
 export const routes: Routes = [
     {path: '', component: HomePage},
@@ -15,6 +16,7 @@ export const routes: Routes = [
     {path: 'signup', component: SignupPage},
     {path: 'profile', component: ProfilePage},
     {path: 'project-config', component: ProjectConfigPage},
+    {path: 'ui-components', component: UiComponentsPage},
 
     //redirect
     {path: '**', redirectTo: ''}

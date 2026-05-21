@@ -17,4 +17,6 @@ export class AppHeroComponent {
   toggleMode(): void {
     this.viewMode.update((m) => (m === 'lista' ? 'resumen' : 'lista'));
   }
+
+  
 }
