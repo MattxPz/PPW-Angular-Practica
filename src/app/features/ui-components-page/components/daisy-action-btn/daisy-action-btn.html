@@ -1,0 +1,6 @@
+<button class="btn {{ btnClass() }}">
+  @if (isLoading()) {
+    <span class="loading loading-spinner"></span>
+  }
+  {{ text() }}
+</button>

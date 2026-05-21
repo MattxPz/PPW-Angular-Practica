@@ -47,6 +47,7 @@
             value="A"
             helper="Consistencia visual"
         />
+        
     </section>
 
     <section class="grid gap-4 lg:grid-cols-[2fr_1fr]">
@@ -73,3 +74,76 @@
             title="UI Features"
         />
     </section>
+
+<section class="grid gap-4 md:grid-cols-2">
+    <article class="rounded-3xl border border-base-200 bg-base-100 p-6 shadow-sm">
+        <h2 class="text-xl font-black tracking-tight text-slate-900">Alertas y Estados</h2>
+        <p class="mt-2 text-sm text-slate-600">
+            Componentes de daisyUI integrados para retroalimentación visual.
+        </p>
+
+        <div class="mt-4 space-y-4">
+            <div class="alert alert-info shadow-lg rounded-2xl border border-base-200 bg-sky-50/80 p-4">
+                <p class="text-sm text-slate-800">El sistema está sincronizando los datos correctamente.</p>
+            </div>
+            
+            <div class="flex gap-2">
+                <app-daisy-status-badge
+                    label="Nuevo"
+                    color="badge-primary"
+                />
+                <app-daisy-status-badge
+                    label="En proceso"
+                    color="badge-secondary"
+                    [outline]="true"
+                />
+                <app-daisy-status-badge
+                    label="Revisión"
+                    color="badge-accent"
+                />
+            </div>
+        </div>
+    </article>
+
+    <article class="rounded-3xl border border-base-200 bg-base-100 p-6 shadow-sm">
+        <h2 class="text-xl font-black tracking-tight text-slate-900">Interacciones y Progreso</h2>
+        <p class="mt-2 text-sm text-slate-600">
+            Botones, avatares de usuario e indicadores de carga.
+        </p>
+
+        <div class="mt-4 space-y-6">
+            <div class="flex items-center gap-4">
+                <app-daisy-user-avatar
+                    imageUrl="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                    size="w-12"
+                    [isOnline]="true"
+                />
+                <div class="flex gap-2">
+                    <app-daisy-action-btn
+                        text="Confirmar"
+                        btnClass="btn-neutral"
+                        [isLoading]="false"
+                    />
+                    <app-daisy-action-btn
+                        text="Procesando"
+                        btnClass="btn-outline"
+                        [isLoading]="true"
+                    />
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-700">Progreso de despliegue</p>
+                <app-daisy-progress-bar
+                    [value]="60"
+                    [max]="100"
+                    color="progress-success"
+                />
+            </div>
+        </div>
+    </article>
+</section>
+
+<div class="alert alert-info shadow-lg rounded-2xl border border-base-200 bg-sky-50/80 p-4 flex flex-col gap-6">
+    <p class="text-sm text-slate-800">El sistema está sincronizando los datos correctamente.</p>
+</div>
