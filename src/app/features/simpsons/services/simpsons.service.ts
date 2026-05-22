@@ -5,12 +5,13 @@ import {
   SimpsonsCharacter,
   SimpsonsResponse,
 } from '../models/simpsons.interface';
+import { environment } from '../../../../environments/environment';
 
 
 @Injectable({ providedIn: 'root' })
 export class SimpsonsService {
   private http = inject(HttpClient);
-  private readonly baseUrl = 'https://thesimpsonsapi.com/api';
+  private readonly baseUrl = environment.apiUrl;
 
  // Devuelve un Observable tipado; no hace la llamada hasta que alguien se suscribe.
   getCharacters(page: number = 1): Observable<SimpsonsResponse> {
