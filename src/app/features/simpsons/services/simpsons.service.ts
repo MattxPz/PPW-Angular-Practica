@@ -52,4 +52,24 @@ export class SimpsonsService {
       )
     );
   }
+  
+  getCharactersOptions(options: Options = {}): Observable<SimpsonsResponse> {
+  const { page = 1, limit = 10 } = options;
+  return this.http
+    .get<SimpsonsResponse>(
+      `${this.baseUrl}/characters?page=${page}&limit=${limit}`
+    )
+    .pipe(
+      catchError(() =>
+        throwError(() => new Error('No se pudieron cargar los personajes'))
+      )
+    );
+}
+
+}
+
+export interface Options {
+  page?: number;
+  limit?: number;
+
 }
