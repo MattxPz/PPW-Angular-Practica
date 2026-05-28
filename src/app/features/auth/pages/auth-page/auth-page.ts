@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
 import { AuthService } from '../../../../core/services/auth.service';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Auth, GoogleAuthProvider, signInWithPopup } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-auth-page',
@@ -14,6 +15,8 @@ export class AuthPage {
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
   private router = inject(Router);
+
+  private auth = inject(Auth);
 
   // true = mostrar login, false = mostrar registro.
   isLogin = signal(true);
@@ -62,4 +65,21 @@ export class AuthPage {
     });
   }
 
+  async loginWithGoogle() {
+    try {
+      this.isLoading.set(true);
+
+      const provider = new GoogleAuthProvider();
+
+      await signInWithPopup(this.auth, provider);
+
+    } catch (error) {
+      console.error(error);
+      this.errorMessage.set('Error al iniciar sesión con Google');
+    } finally {
+      this.isLoading.set(false);
+    }
+  }
+
+  
 }
