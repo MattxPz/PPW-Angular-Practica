@@ -1,9 +1,10 @@
-import { inject, Injectable } from "@angular/core";
+import { computed, inject, Injectable } from "@angular/core";
 import { toSignal } from "@angular/core/rxjs-interop";
-import { Auth, authState, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "@angular/fire/auth";
+import { Auth, authState, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, User } from "@angular/fire/auth";
 import { from } from "rxjs";
 
 @Injectable({ providedIn: 'root' })
+
 export class AuthService {
   private auth = inject(Auth);
 
@@ -30,4 +31,15 @@ export class AuthService {
   get uid(): string | null {
     return this.currentUser()?.uid ?? null;
   }
+  user = toSignal<User | null | undefined>(authState(this.auth), {
+    initialValue: undefined,
+  });
+
+  
+
+  role = computed<'admin' | 'user' | null>(() => {
+    const u = this.user();
+    if (!u) return null;
+    return u.email === 'admin@ups.edu.ec' ? 'admin' : 'user';
+  });
 }

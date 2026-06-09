@@ -72,6 +72,7 @@ export class AuthPage {
       const provider = new GoogleAuthProvider();
 
       await signInWithPopup(this.auth, provider);
+      this.router.navigate(['/']);
 
     } catch (error) {
       console.error(error);

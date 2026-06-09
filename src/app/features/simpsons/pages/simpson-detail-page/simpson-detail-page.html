@@ -53,12 +53,7 @@
             {{ characterResource.value()!.status || 'Desconocido' }}
           </span>
         </div>
-      </div>
-    </article>
-  }
-</section>
-
-@if (authService.currentUser()) {
+        @if (authService.currentUser()) {
   <!-- Solo visible para usuarios autenticados. -->
   <button
     class="btn btn-outline btn-sm"
@@ -77,3 +72,9 @@
     Inicia sesion para guardar favoritos
   </a>
 }
+      </div>
+      
+    </article>
+  }
+</section>
+

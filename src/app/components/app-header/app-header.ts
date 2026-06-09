@@ -14,8 +14,10 @@ import { AuthService } from '../../core/services/auth.service';
 
 export class AppHeader {
 
+
   readonly brand = signal("ppw-angular");
   readonly showInfo = signal(false);
+
 
   readonly toggleLabel = computed(
     () => (this.showInfo()

@@ -10,19 +10,26 @@ import { UiComponentsPage } from './features/ui-components-page/ui-components-pa
 import { SimpsonsPage } from './features/simpsons/pages/simpsons-page/simpsons-page';
 import { SimpsonDetailPage } from './features/simpsons/pages/simpson-detail-page/simpson-detail-page';
 import { AuthPage } from './features/auth/pages/auth-page/auth-page';
+import { guestGuard } from './core/guards/guest.guard';
+import { authGuard } from './core/guards/auth.guard';
+import { adminGuard } from './core/guards/admin.guard';
 
 export const routes: Routes = [
     {path: '', component: HomePage},
-    {path: 'students', component: StudentsPage},
-    {path: 'students/:id', component: StudentDetailPage},
-    {path: 'layouts', component: LayoutsPage},
-    {path: 'signup', component: SignupPage},
-    {path: 'profile', component: ProfilePage},
-    {path: 'project-config', component: ProjectConfigPage},
-    {path: 'ui-components', component: UiComponentsPage},
-    {path: 'simpsons', component: SimpsonsPage},
-    {path: 'simpsons/:id', component: SimpsonDetailPage},
-    {path: 'auth', component: AuthPage},
+    {path: 'students', component: StudentsPage, canActivate: [authGuard]},
+    {path: 'students/:id', component: StudentDetailPage, canActivate: [authGuard]},
+    {path: 'layouts', component: LayoutsPage, canActivate: [authGuard]},
+    {path: 'signup', component: SignupPage, canActivate: [authGuard]},
+    {path: 'profile', component: ProfilePage, canActivate: [authGuard]},
+    {path: 'project-config', component: ProjectConfigPage, canActivate: [authGuard]},
+    {path: 'ui-components', component: UiComponentsPage, canActivate: [authGuard]},
+
+
+    {path: 'simpsons', component: SimpsonsPage, canActivate: [adminGuard]},
+    {path: 'simpsons/:id', component: SimpsonDetailPage, canActivate: [adminGuard]},
+
+    {path: 'auth', component: AuthPage, canActivate: [guestGuard]},
+
     //redirect
     {path: '**', redirectTo: ''}
 ];
